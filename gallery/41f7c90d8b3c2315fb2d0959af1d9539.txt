@@ -1,0 +1,56 @@
+                  Age Overall Special Preferred.Foot International.Reputation
+L..Messi           31      94    2202           Left                        5
+Cristiano.Ronaldo  33      94    2228          Right                        5
+Neymar.Jr          26      92    2143          Right                        5
+De.Gea             27      91    1471          Right                        4
+K..De.Bruyne       27      91    2281          Right                        4
+E..Hazard          27      91    2142          Right                        4
+                  Weak.Foot Skill.Moves Crossing Finishing HeadingAccuracy
+L..Messi                  4           4       84        95              70
+Cristiano.Ronaldo         4           5       84        94              89
+Neymar.Jr                 5           5       79        87              62
+De.Gea                    3           1       17        13              21
+K..De.Bruyne              5           4       93        82              55
+E..Hazard                 4           4       81        84              61
+                  ShortPassing Volleys Dribbling Curve FKAccuracy LongPassing
+L..Messi                    90      86        97    93         94          87
+Cristiano.Ronaldo           81      87        88    81         76          77
+Neymar.Jr                   84      84        96    88         87          78
+De.Gea                      50      13        18    21         19          51
+K..De.Bruyne                92      82        86    85         83          91
+E..Hazard                   89      80        95    83         79          83
+                  BallControl Acceleration SprintSpeed Agility Reactions Balance
+L..Messi                   96           91          86      91        95      95
+Cristiano.Ronaldo          94           89          91      87        96      70
+Neymar.Jr                  95           94          90      96        94      84
+De.Gea                     42           57          58      60        90      43
+K..De.Bruyne               91           78          76      79        91      77
+E..Hazard                  94           94          88      95        90      94
+                  ShotPower Jumping Stamina Strength LongShots Aggression
+L..Messi                 85      68      72       59        94         48
+Cristiano.Ronaldo        95      95      88       79        93         63
+Neymar.Jr                80      61      81       49        82         56
+De.Gea                   31      67      43       64        12         38
+K..De.Bruyne             91      63      90       75        91         76
+E..Hazard                82      56      83       66        80         54
+                  Interceptions Positioning Vision Penalties Composure Marking
+L..Messi                     22          94     94        75        96      33
+Cristiano.Ronaldo            29          95     82        85        95      28
+Neymar.Jr                    36          89     87        81        94      27
+De.Gea                       30          12     68        40        68      15
+K..De.Bruyne                 61          87     94        79        88      68
+E..Hazard                    41          87     89        86        91      34
+                  StandingTackle SlidingTackle GKDiving GKHandling GKKicking
+L..Messi                      28            26        6         11        15
+Cristiano.Ronaldo             31            23        7         11        15
+Neymar.Jr                     24            33        9          9        15
+De.Gea                        21            13       90         85        87
+K..De.Bruyne                  58            51       15         13         5
+E..Hazard                     27            22       11         12         6
+                  GKPositioning GKReflexes ValueNum
+L..Messi                     14          8   1.e+04
+Cristiano.Ronaldo            14         11   9.e+03
+Neymar.Jr                    15         11   1.e+04
+De.Gea                       88         94   8.e+03
+K..De.Bruyne                 10         13   1.e+04
+E..Hazard                     8          8   1.e+04
