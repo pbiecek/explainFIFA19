@@ -69,7 +69,7 @@ Let's wrap gbm model into a DALEX explainer.
 library("DALEX")
 fifa_gbm_exp <- explain(fifa_gbm, 
                         data = fifa19_selected, 
-                        y = fifa19_selected$ValueNum, 
+                        y = fifa19_selected$ValueNum^2, 
                         predict_function = function(m,x) 
                           predict(m, x, n.trees = 250)^2)
 ```
