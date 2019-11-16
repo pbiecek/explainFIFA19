@@ -72,10 +72,6 @@ fifa_gbm_exp <- explain(fifa_gbm,
                         y = fifa19_selected$ValueNum, 
                         predict_function = function(m,x) 
                           predict(m, x, n.trees = 250)^2)
-
-fifa_gbm_exp_plain <- explain(fifa_gbm, 
-                        data = fifa19_selected, 
-                        y = fifa19_selected$ValueNum)
 ```
 
 # Feature Importance explainer
@@ -84,7 +80,7 @@ Calculate Feature Importnace explainer.
 
 ```{r warning=FALSE, message=FALSE}
 library("ingredients")
-fifa_feat <- ingredients::feature_importance(fifa_gbm_exp_plain)
+fifa_feat <- ingredients::feature_importance(fifa_gbm_exp)
 plot(fifa_feat, max_vars = 12)
 ```
 
