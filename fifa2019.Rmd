@@ -67,6 +67,7 @@ Let's wrap gbm model into a DALEX explainer.
 
 ```{r warning=FALSE, message=FALSE}
 library("DALEX")
+
 fifa_gbm_exp <- explain(fifa_gbm, 
                         data = fifa19_selected, 
                         y = fifa19_selected$ValueNum^2, 
@@ -121,20 +122,25 @@ plot(fifa_pg_gbm, digits = 0) +
 
 # modelStudio app
 
-Calculate modelStudio application.
+Calculate modelStudio dashboard.
 
-```
+```{r eval = FALSE}
 library("modelStudio")
 options(
     parallelMap.default.mode        = "socket",
-    parallelMap.default.cpus        = 8,
-    parallelMap.default.show.info   = FALSE,
-    digits = 0
+    parallelMap.default.cpus        = 4,
+    parallelMap.default.show.info   = FALSE
 )
 
 fifa19_ms <- modelStudio(fifa_gbm_exp, 
-                         new_observation = fifa19_selected[c("L..Messi","R..Lewandowski", "W..Szczęsny", "P..Gulácsi","A..Szalai", "Cristiano.Ronaldo", "Neymar.Jr"), ], B = 5, digits = 0)
+                         new_observation = fifa19_selected[c("Cristiano.Ronaldo", "L..Messi","R..Lewandowski", "W..Szczęsny", "P..Gulácsi","A..Szalai", "Neymar.Jr"), ],
+                         B = 5, N = 300,
+                         parallel = TRUE,
+                         options = modelStudioOptions(margin_left = 165),
+                         digits = 0)
 
-r2d3::save_d3_html(fifa19_ms, file = "fifa19.html")
+fifa19_ms
+
+r2d3::save_d3_html(fifa19_ms, file = "fifa19_ms.html")
 ```
 
