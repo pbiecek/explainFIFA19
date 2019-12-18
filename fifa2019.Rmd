@@ -132,8 +132,11 @@ options(
     parallelMap.default.show.info   = FALSE
 )
 
+fifa_selected6 <- fifa19_selected[c("Cristiano.Ronaldo", "L..Messi","R..Lewandowski", "W..Szczęsny", "P..Gulácsi","A..Szalai", "Neymar.Jr"), ]
+rownames(fifa_selected6) <- c("Cristiano Ronaldo", "Lionel Messi","Robert Lewandowski", "Wojciech Szczęsny", "Péter Gulácsi","Ádám Szalai", "Neymar Jr")
+
 fifa19_ms <- modelStudio(fifa_gbm_exp, 
-                         new_observation = fifa19_selected[c("Cristiano.Ronaldo", "L..Messi","R..Lewandowski", "W..Szczęsny", "P..Gulácsi","A..Szalai", "Neymar.Jr"), ],
+                         new_observation = fifa_selected6,
                          B = 5, N = 300,
                          parallel = TRUE,
                          options = modelStudioOptions(margin_left = 165),
