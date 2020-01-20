@@ -132,17 +132,44 @@ options(
     parallelMap.default.show.info   = FALSE
 )
 
-fifa_selected6 <- fifa19_selected[c("Cristiano.Ronaldo", "L..Messi","R..Lewandowski", "W..Szczęsny", "P..Gulácsi","A..Szalai", "Neymar.Jr"), ]
-rownames(fifa_selected6) <- c("Cristiano Ronaldo", "Lionel Messi","Robert Lewandowski", "Wojciech Szczęsny", "Péter Gulácsi","Ádám Szalai", "Neymar Jr")
+nationality <- c("England", "France", "Argentina", "Spain", "Germany", "Sweden", "Netherlands", "Japan", "Poland", "United States", "Mexico", "Denmark", "Saudi Arabia", "Norway", "Argentina", "Portugal", "Brasil")
+
+library(dplyr)
+fifa19 %>% 
+  filter(Nationality %in% nationality) %>%
+  group_by(Nationality) %>%
+  arrange(-ValueNum) %>%
+  top_n(2) %>%
+  select(Name, Nationality) %>%
+  as.data.frame() -> players
+  
+selected <- c("Cristiano.Ronaldo", "L..Messi","R..Lewandowski", "W..Szczęsny", "P..Gulácsi","A..Szalai", "Neymar.Jr",
+"P..Dybala", "H..Kane", "K..Mbappé", "A..Griezmann", 
+"T..Kroos", "Isco", "C..Eriksen", "De.Gea", 
+"L..Sané", "R..Sterling", "V..van.Dijk", "M..Depay", 
+"E..Forsberg", "H..Lozano", "T..Delaney", "A..Christensen", "J..Corona", 
+"C..Pulisic", "S..Kagawa", "M..Elyounoussi", "V..Lindelöf", 
+"T..Inui", "J..Brooks", "S..Nakajima", "R..Jarstein", "S..Al.Faraj", 
+"S..Al.Dawsari", "Bernardo.Silva") 
+
+names_sel <- c("Cristiano Ronaldo (PT)", "Lionel Messi (AR)", "Robert Lewandowski (PL)", "Wojciech Szczęsny (PL)", "Péter Gulácsi (HU)","Ádám Szalai (HU)", "Neymar Jr (BR)",
+"Paulo Dybala (AR)", "Harry Kane (UK)", "Kylian Mbappé (FR)", "Antoine Griezmann (FR)", "Toni Kroos (DE)", "Isco (ES)", "Christian Eriksen (DK)", 
+"De Gea (ES)", "Leroy Sané (DE)", "Raheem Sterling (UK)", "Virgil van Dijk (NL)", "Memphis Depay (NL)", "Emil Forsberg (SE)", "Hirving Lozano (MX)", "Thomas Delaney (DK)", "Andreas Christensen (DK)", "Jesús Corona (MX)", "Christian Pulisic (US)", "Shinji Kagawa (JP)", "Mohamed Elyounoussi (NO)", "Victor Lindelöf (SE)", "Takashi Inui (JP)", "John Brooks (US)", "Shoya Nakajima (JP)", "Rune Almenning Jarstein (NO)", "Salman Al Faraj (SA)", "Salem Al Dawsari (SA)", "Bernardo Silva (PT)")
+
+fifa_selected6 <- fifa19_selected[selected, ]
+rownames(fifa_selected6) <- names_sel
+fifa_selected6 <- fifa_selected6[c(1,35,2,8,3:7,9:34),]
 
 fifa19_ms <- modelStudio(fifa_gbm_exp, 
                          new_observation = fifa_selected6,
                          B = 5, N = 300,
                          parallel = TRUE,
-                         options = modelStudioOptions(margin_left = 165),
+                         options = modelStudioOptions(margin_left = 125, margin_ytitle = 90),
                          digits = 0)
 
 fifa19_ms
+
+
 
 r2d3::save_d3_html(fifa19_ms, file = "fifa19_ms.html")
 ```
